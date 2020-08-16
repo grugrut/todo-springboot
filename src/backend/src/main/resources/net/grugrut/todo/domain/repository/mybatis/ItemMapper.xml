@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.grugrut.todo.domain.repository.mybatis.ItemMapper">
+<resultMap type="net.grugrut.todo.domain.model.Item" id="item">
+<id column="id" property="id" />
+<result column="name" property="name" />
+<result column="status" property="status" />
+</resultMap>
+
+<insert id="add" parameterType="net.grugrut.todo.domain.model.Item">
+INSERT INTO items(
+id,
+name,
+status)
+VALUES (
+#{id},
+#{name},
+#{status}
+)
+</insert>
+
+<select id="getAll" resultMap="item">
+SELECT id, name, status
+FROM items
+</select>
+
+<select id="get" parameterType="Integer" resultMap="item">
+SELECT id, name, status
+FROM items
+WHERE id = #{id}
+</select>
+
+<update id="update" parameterType="net.grugrut.todo.domain.model.Item">
+UPDATE items
+SET
+name = #{name},
+status = #{status}
+WHERE id = #{id}
+</update>
+
+<delete id="delete" parameterType="Integer">
+DELETE FROM items 
+WHERE id = #{id}
+</delete>
+</mapper>
