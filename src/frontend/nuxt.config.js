@@ -58,14 +58,15 @@ export default {
   },
   proxy: {
     '/api/': {
-      target: 'http://localhost:8080',
+      // for WSL2, `API_BASE_URL=http://$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):8080 npm run dev`
+      target: process.env.API_BASE_URL || 'http://localhost:8080',
       pathRewrite: {'^/api/': ''}
     }
   },
-    /*
-     ** Build configuration
-     ** See https://nuxtjs.org/api/configuration-build/
-     */
-    build: {
+  /*
+   ** Build configuration
+   ** See https://nuxtjs.org/api/configuration-build/
+   */
+  build: {
   },
 }
