@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS items (
-id INT PRIMARY KEY,
+id INT auto_increment PRIMARY KEY,
 name VARCHAR(64),
 status INT
 );
