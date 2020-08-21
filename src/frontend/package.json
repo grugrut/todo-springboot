@@ -13,5 +13,10 @@
     "bootstrap-vue": "^2.16.0",
     "nuxt": "^2.14.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0"
+    }
+  }
 }
