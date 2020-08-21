@@ -11,11 +11,9 @@
 
 <insert id="add" parameterType="net.grugrut.todo.domain.model.Item">
 INSERT INTO items(
-id,
 name,
 status)
 VALUES (
-#{id},
 #{name},
 #{status}
 )
